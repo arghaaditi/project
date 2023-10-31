@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptography Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Cryptography.css">
+  <!-- Custom CSS -->
+  <style>
+  /* Add your custom CSS styles here */
+body {
+    /* background-image: url("images/back3a.jpg"); */
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 200px;
+    background-attachment: fixed;
+    background-color: peachpuff;
+    
+    
+  }
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cryptography</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#encrption">Encryption</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#decryption">Decryption</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2>About Cryptography</h2>
+      <p>
+        Cryptography is the practice of securing communication from adversaries. It involves techniques such as encryption,  decryption, and cryptographic key management. Cryptography plays a vital role in ensuring data privacy and integrity.
+      </p>
+    </div>
+</section>
+   <section id="encrption" class="py-5 ">
+    <div class="container">
+    <h2>Encryption</h2>
+    <p>
+        Encryption is the process of converting plaintext into ciphertext, making it unreadable to unauthorized parties.  Popular encryption algorithms include AES, RSA, and DES. To encrypt a message using the Hill cipher, follow these steps:</p>
+        <ol>
+            
+<li>Choose a square encryption matrix (e.g., 2x2 or 3x3), denoted as E. For example, for a 2x2 matrix:<br>
+
+E=| a  b |<br>
+    | c  d |<br>
+The elements of the matrix should be integers, and they determine the key for encryption.</li>
+
+<li>Convert the plaintext into numerical values. Typically, you map 'A' to 0, 'B' to 1, and so on. Split the plaintext into blocks of the same size as the matrix.</li>
+
+<li>Perform matrix multiplication (mod 26) of each plaintext block with the encryption matrix. The result is a numerical representation of the ciphertext.<br>
+
+Ciphertext block = Encryption matrix * Plaintext block (mod 26)
+</li>
+<li>Convert the numerical values back to letters to obtain the ciphertext.</li>
+
+        </ol>
+    </p>
+</div>
+  </section>
+  <section id="decryption" class="py-5 ">
+  <div class="container">
+  <h2>Decryption</h2>
+        <p>
+            Decryption is the reverse process of encryption. It involves converting ciphertext back into plaintext using the
+            appropriate decryption algorithm and key. Only authorized parties with the correct key can perform decryption.
+            To decrypt a message encrypted with the Hill cipher, you need to find the <em>decryption matrix</em>, which is the inverse of the encryption matrix. 
+            The decryption process involves the following steps:</p>
+            <ol>
+                <!-- <li>Calculate the inverse of the encryption matrix.</li>
+                <li>Convert the ciphertext into numerical values.</li>
+                <li>Multiply each block by the decryption matrix, again taking the result modulo 26.</li>
+                <li>Convert the resulting numbers back to letters to recover the plaintext.</li> -->
+                Decryption:
+
+<li>Calculate the decryption matrix (D), which is the modular multiplicative inverse of the determinant of the encryption matrix.
+     The determinant of the encryption matrix must be relatively prime to 26 for the matrix to have an inverse.</li>
+
+    <li>Convert the ciphertext into numerical values.</li>
+
+<li>Perform matrix multiplication (mod 26) of each ciphertext block with the decryption matrix.<br>
+
+Plaintext block = Decryption matrix * Ciphertext block (mod 26)</li>
+</li>Convert the numerical values back to letters to recover the plaintext.</li>
+</ol>
+<section id="decryption" class="py-5 ">
+<div class="container">
+<p><h2>Example:</h2>
+
+Let's encrypt and decrypt the message "HELLO" using a 2x2 matrix with the key: a=3, b=5, c=2, d=7.<br>
+
+Encryption:<br>
+
+Encryption matrix:<br>
+E = | 3  5 |<br>
+    | 2  7 |<br>
+Plaintext to numerical values: "HELLO" becomes [7, 4, 11, 11, 14].<br>
+
+Matrix multiplication (mod 26):<br>
+
+Ciphertext block = E * [7, 4] (mod 26) = [13, 15]<br>
+Ciphertext: "NPO"<br>
+            
+        </p>
+    </div>
+</section>
+  <!-- <section id="decryption" class="py-5">
+    <div class="container">
+      <h2>Decryption</h2>
+      <p>
+        Decryption is the reverse process of encryption. It involves converting ciphertext back into plaintext using the
+        appropriate decryption algorithm and key. Only authorized parties with the correct key can perform decryption.
+      </p>
+    </div>
+  </section> -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
